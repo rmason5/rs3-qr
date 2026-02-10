@@ -20,6 +20,10 @@
       padding: 28px 18px 60px;
     }
 
+    .black-bg {
+      background: #000;
+    }
+
     li ul {
       margin-top: 6px;
       margin-bottom: 6px;
@@ -28,43 +32,18 @@
       font-size: 14px;
     }
 
-    /* ONE BIG VIDEO CARD */
+    /* MAIN CONTAINER (no main background video) */
     .video-card {
       position: relative;
-      overflow: hidden;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.12);
-      min-height: 820px;
-      background: rgba(255,255,255,.06);
-      display: flex;
-      align-items: stretch;
-    }
-
-    .video-card video.bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.48;
-      filter: saturate(1.1) contrast(1.1);
-    }
-
-    .video-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(11,11,15,.55),
-        rgba(11,11,15,.90)
-      );
+      background: #000;
+      padding: 26px;
     }
 
     .content {
       position: relative;
       z-index: 1;
-      padding: 26px;
       width: 100%;
     }
 
@@ -151,7 +130,7 @@
       padding: 14px 14px 12px;
     }
 
-    /* Mobile: avoid "zoomed in" on panel backgrounds too */
+    /* Mobile: avoid "zoomed in" on panel backgrounds */
     @media (max-width: 600px) {
       .panel-video video {
         object-fit: contain;
@@ -180,12 +159,8 @@
 <body>
   <div class="wrap">
     <div class="video-card">
-      <!-- MAIN BACKGROUND VIDEO -->
-      <video class="bg" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-        <source src="assets/video/rs3vid.mp4" type="video/mp4">
-      </video>
 
-      <div class="content">
+      <div class="content black-bg">
         <!-- HEADER -->
         <div>
           <span class="pill">2018</span>
@@ -204,7 +179,6 @@
             <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
               <source src="assets/video/rs32.mp4" type="video/mp4">
             </video>
-
             <div class="panel-content">
               <h2>Performance Mods</h2>
               <ul>
@@ -227,7 +201,6 @@
             <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
               <source src="assets/video/rs34.mp4" type="video/mp4">
             </video>
-
             <div class="panel-content">
               <h2>Stance</h2>
               <ul>
@@ -252,7 +225,6 @@
             <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
               <source src="assets/video/rs33.mp4" type="video/mp4">
             </video>
-
             <div class="panel-content">
               <h2>Visuals</h2>
               <ul>
@@ -283,7 +255,6 @@
             <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
               <source src="assets/video/rs33.mp4" type="video/mp4">
             </video>
-
             <div class="panel-content">
               <h2>Stats</h2>
               <ul>
@@ -301,7 +272,6 @@
             <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
               <source src="assets/video/rs31 (1).mp4" type="video/mp4">
             </video>
-
             <div class="panel-content">
               <h2>FAQ</h2>
               <p>“Do you like triggering purists?” — <strong>Absolutely.</strong></p>
@@ -313,6 +283,7 @@
 
         </div>
       </div>
+
     </div>
   </div>
 </body>
