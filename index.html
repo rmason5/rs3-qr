@@ -126,10 +126,18 @@
     }
 
     .panel-content {
-      position: relative;
-      z-index: 1;
-      padding: 14px 14px 12px;
-    }
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.panel-content h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
 
     /* Mobile: avoid "zoomed in" on panel backgrounds */
 @media (max-width: 600px) {
