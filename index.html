@@ -132,13 +132,13 @@
     }
 
     /* Mobile: avoid "zoomed in" on panel backgrounds */
-    @media (max-width: 600px) {
-      .panel-video video {
-        object-fit: contain;
-        background: #000;
-        object-position: center;
-      }
-    }
+@media (max-width: 600px) {
+  .panel-video video {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 
     ul { margin: 0; padding-left: 18px; }
     li { margin: 6px 0; }
