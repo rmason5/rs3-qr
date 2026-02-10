@@ -33,13 +33,12 @@
       margin: 10px 0 6px;
     }
 
-    h2 {
-      margin: 6px 0 10px;
-    }
+    h2 { margin: 6px 0 10px; }
 
     .sub {
       color: rgba(255,255,255,.75);
       font-size: 16px;
+      margin: 0;
     }
 
     .pill {
@@ -51,14 +50,8 @@
       font-size: 13px;
     }
 
-    a {
-      color: #9bd1ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #9bd1ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     code {
       background: rgba(255,255,255,.08);
@@ -66,7 +59,7 @@
       border-radius: 8px;
     }
 
-    /* VIDEO SECTION */
+    /* VIDEO SECTION (Proof card) */
     .video-wrap {
       position: relative;
       display: grid;
@@ -80,6 +73,7 @@
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
       background: #000;
+      display: block;
     }
 
     .sound {
@@ -96,8 +90,40 @@
       backdrop-filter: blur(6px);
     }
 
-    .sound:hover {
-      filter: brightness(1.12);
+    .sound:hover { filter: brightness(1.12); }
+
+    /* FAQ VIDEO BACKGROUND */
+    .faq-video {
+      position: relative;
+      overflow: hidden;
+      padding: 0; /* faq-content handles padding */
+    }
+
+    .faq-video video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35; /* intensity */
+      filter: saturate(1.1) contrast(1.1);
+    }
+
+    .faq-video::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,11,15,.65),
+        rgba(11,11,15,.85)
+      );
+    }
+
+    .faq-content {
+      position: relative;
+      z-index: 1;
+      padding: 18px;
     }
   </style>
 </head>
@@ -114,7 +140,7 @@
       <div class="sub">data &gt; feelings</div>
     </div>
 
-    <!-- VIDEO -->
+    <!-- PROOF VIDEO (small, centered) -->
     <div class="card">
       <h2>Proof</h2>
       <p class="sub">Autoplays muted. Tap for sound.</p>
@@ -125,7 +151,7 @@
           Your browser does not support the video tag.
         </video>
 
-        <button class="sound" onclick="toggleMute()">🔊 Unmute</button>
+        <button class="sound" type="button" onclick="toggleMute()">🔊 Unmute</button>
       </div>
     </div>
 
@@ -153,7 +179,7 @@
         <li>Konig Heliogram 19x8.5 ET43</li>
         <li>APR 10mm spacers (front)</li>
         <li>APR 15mm spacers (rear)</li>
-        <li>ECS 2-piece rotors (front & rear)</li>
+        <li>ECS 2-piece rotors (front &amp; rear)</li>
         <li>Bonoss extended lugs</li>
       </ul>
     </div>
@@ -183,12 +209,18 @@
       </ul>
     </div>
 
-    <!-- FAQ -->
-    <div class="card">
-      <h2>FAQ</h2>
-      <p>“Is this all for performance?” — <strong>Mostly.</strong></p>
-      <p>“Do you like triggering purists?” — <strong>Yes.</strong></p>
-      <p>“What’s next?” — <strong>Intercooler, downpipe, wrap.</strong></p>
+    <!-- FAQ (VIDEO BACKGROUND) -->
+    <div class="card faq-video">
+      <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/video/rs3-qr-vid.mp4" type="video/mp4">
+      </video>
+
+      <div class="faq-content">
+        <h2>FAQ</h2>
+        <p>“Is this all for performance?” — <strong>Mostly.</strong></p>
+        <p>“Do you like triggering purists?” — <strong>Yes.</strong></p>
+        <p>“What’s next?” — <strong>Intercooler, downpipe, wrap.</strong></p>
+      </div>
     </div>
 
   </div>
